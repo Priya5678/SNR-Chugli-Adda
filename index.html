@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SNR Chugli Adda - Official Website</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <!-- Swiper CSS for testimonials slider -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    <!-- CSS code is now inside the HTML file -->
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500;700&display=swap');
+
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        /* Professional color palette */
+        --brand-primary: #371c17;
+        --brand-secondary: #c89c4f;
+        --brand-light-bg: #f9f6f2;
+        --text-dark: #252525;
+        --white-color: #fff;
+        --medium-gray-color: #ccc;
+        
+        /* Fonts */
+        --font-serif: 'Playfair Display', serif;
+        --font-sans: 'Roboto', sans-serif;
+        
+        /* Sizes */
+        --font-size-n: 1rem;
+        --font-size-xl: 2.5rem;
+        --font-size-xxl: 3.5rem;
+        
+        --border-radius-s: 8px;
+        --border-radius-m: 30px;
+        --border-radius-circle: 50%;
+        --site-max-width: 1200px;
+      }
+
+      html { scroll-behavior: smooth; }
+      body { font-family: var(--font-sans); background-color: var(--brand-light-bg); }
+      ul { list-style: none; }
+      a { text-decoration: none; }
+      button { cursor: pointer; background: none; border: none; }
+      img { width: 100%; display: block; }
+
+      :where(section, footer) .section-content {
+        margin: 0 auto;
+        padding: 0 20px;
+        max-width: var(--site-max-width);
+      }
+
+      section { padding: 80px 0; }
+      section .section-title {
+        text-align: center;
+        padding-bottom: 50px;
+        font-family: var(--font-serif);
+        color: var(--brand-primary);
+        font-size: var(--font-size-xl);
+        text-transform: capitalize;
+      }
+      section .section-title::after {
+        content: ""; width: 80px; height: 4px; display: block;
+        margin: 10px auto 0; background: var(--brand-secondary);
+        border-radius: var(--border-radius-s);
+      }
+
+      /* Navigation Bar */
+      header { z-index: 5; width: 100%; position: sticky; top: 0; background: var(--brand-primary); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+      header .navbar { display: flex; padding: 15px 20px; align-items: center; margin: 0 auto; justify-content: space-between; max-width: var(--site-max-width); }
+      .navbar .nav-logo .logo-image { height: 50px; width: auto; } /* Style for your logo */
+      .navbar .nav-menu { gap: 2rem; display: flex; align-items: center; }
+      .navbar .nav-menu .nav-link { padding: 8px 12px; color: var(--white-color); font-size: var(--font-size-n); border-radius: var(--border-radius-m); transition: 0.3s ease; font-weight: 500; }
+      .navbar .nav-menu .nav-link:hover { color: var(--brand-secondary); }
+      .navbar :where(#menu-open-button, #menu-close-button) { display: none; font-size: 1.5rem; color: var(--white-color); }
+
+      /* Hero Section */
+      .hero-section {
+        min-height: 90vh;
+        /* Your header-banner.jpg is used here */
+        background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('header-banner.jpg');
+        background-position: center; background-size: cover;
+        display: flex; align-items: center; justify-content: center;
+      }
+      .hero-section .section-content { min-height: auto; padding-top: 0; }
+      .hero-section .hero-details { color: var(--white-color); width: 100%; text-align: center; }
+      .hero-section .hero-details .title { font-size: var(--font-size-xxl); font-family: var(--font-serif); color: var(--white-color); text-shadow: 2px 2px 8px rgba(0,0,0,0.5); }
+      .hero-section .hero-details .subtitle { margin-top: 8px; max-width: 80%; margin-left: auto; margin-right: auto; font-size: 1.4rem; font-weight: 400; opacity: 0.9; }
+      .hero-section .hero-details .description { max-width: 70%; margin: 16px auto 40px; font-size: 1.1rem; }
+      .hero-section .hero-details .buttons { display: flex; gap: 23px; justify-content: center; }
+      .hero-section .hero-details .button { padding: 12px 32px; border: 2px solid var(--brand-secondary); border-radius: var(--border-radius-m); background: var(--brand-secondary); color: var(--brand-primary); font-size: 1.1rem; font-weight: 700; transition: 0.5s ease; }
+      .hero-section .hero-details .button:hover { background: transparent; color: var(--brand-secondary); }
+
+      /* About Section */
+      .about-section { padding: 100px 0; background: #fff; }
+      .about-section .section-content { display: flex; gap: 60px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+      .about-section .about-image-wrapper { flex: 1; min-width: 300px; }
+      .about-section .about-image-wrapper .about-image { height: 400px; width: 400px; object-fit: cover; border-radius: var(--border-radius-circle); border: 8px solid var(--white-color); box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin: 0 auto; }
+      .about-section .about-details { flex: 1.5; min-width: 300px; }
+      .about-section .about-details .section-title { padding: 0; text-align: left; }
+      .about-section .about-details .section-title::after { margin-left: 0; }
+      .about-section .about-details .text { line-height: 1.8; margin: 25px 0 20px; font-size: 1.1rem; color: #555; }
+
+      /* Menu Section */
+      .menu-section { padding: 80px 0 100px; }
+      .menu-subheading { text-align: center; font-family: var(--font-serif); font-size: 2rem; color: var(--brand-primary); margin-top: 4rem; margin-bottom: 2.5rem; }
+      .menu-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+      .menu-item { background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: transform 0.4s ease, box-shadow 0.4s ease; }
+      .menu-item:hover { transform: translateY(-10px); box-shadow: 0 20px 30px rgba(0,0,0,0.1); }
+      .menu-item .menu-image-container { height: 250px; position: relative; overflow: hidden; }
+      .menu-item .menu-image { width: 100%; height: 100%; object-fit: cover; }
+      .menu-item .menu-details { padding: 24px; text-align: center; }
+      .menu-item .name { font-size: 1.4rem; font-family: var(--font-serif); color: var(--brand-primary); font-weight: 700; }
+      .menu-item .price { font-size: 1.2rem; font-weight: 700; color: var(--brand-secondary); margin: 8px 0; }
+      .menu-item .description { font-size: 0.9rem; color: #666; }
+
+      /* Steam Animation */
+      .steam { position: absolute; bottom: 5px; left: 50%; width: 100px; height: 120px; transform: translateX(-50%); z-index: 1; filter: blur(1.5px); pointer-events: none; }
+      .steam span { position: absolute; bottom: 0; background: rgba(255, 255, 255, 0.4); border-radius: 50%; animation: steam-rise 5s ease-out infinite; }
+      @keyframes steam-rise { 0% { transform: translateY(0) scale(1); opacity: 0.6; } 100% { transform: translateY(-120px) scale(2.5); opacity: 0; } }
+      .steam span:nth-child(1) { left: 50%; width: 7px; height: 50px; }
+      .steam span:nth-child(2) { left: 40%; width: 6px; height: 40px; animation-delay: 1.5s; }
+      .steam span:nth-child(3) { left: 60%; width: 8px; height: 60px; animation-delay: 2.5s; }
+
+      /* Gallery Section */
+      .gallery-section { padding: 80px 0 100px; background: var(--brand-light-bg); }
+      .gallery-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+      .gallery-item { overflow: hidden; border-radius: 16px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+      .gallery-item img { transition: transform 0.5s ease; aspect-ratio: 1/1; object-fit: cover; }
+      .gallery-item:hover img { transform: scale(1.1); }
+
+      /* Contact Section */
+      .contact-section { padding: 80px 0 100px; background: #fff; }
+      .contact-section .section-content { display: flex; gap: 48px; flex-wrap: wrap; }
+      .contact-info-list { flex: 1.2; min-width: 300px; }
+      .contact-form { flex: 1.5; min-width: 300px; }
+      .contact-section .contact-info { display: flex; gap: 20px; margin-bottom: 1.5rem; align-items: center; }
+      .contact-section .contact-info i { font-size: 1.5rem; color: var(--brand-secondary); width: 25px; text-align: center; }
+      .contact-section .contact-info p { font-size: 1.1rem; color: #555; }
+      .contact-form .form-input { width: 100%; height: 50px; padding: 0 16px; outline: none; margin-bottom: 1rem; font-size: 1rem; border-radius: var(--border-radius-s); border: 1px solid var(--medium-gray-color); transition: border-color 0.3s ease; }
+      .contact-form textarea.form-input { height: 120px; padding-top: 16px; resize: vertical; }
+      .contact-form .form-input:focus { border-color: var(--brand-secondary); }
+      .contact-form .submit-button { padding: 12px 32px; border: 2px solid var(--brand-secondary); border-radius: var(--border-radius-m); background: var(--brand-secondary); color: var(--brand-primary); font-size: 1.1rem; font-weight: 700; transition: 0.5s ease; }
+      .contact-form .submit-button:hover { background: transparent; color: var(--brand-secondary); }
+
+      /* Footer Section */
+      footer { padding: 60px 40px; background: var(--brand-primary); color: #fff; }
+      footer .container { width: 100%; max-width: var(--site-max-width); margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1.5fr; gap: 50px; }
+      footer .container .sec h2 { position: relative; font-family: var(--font-serif); color: #fff; font-weight: 700; margin-bottom: 30px; }
+      footer .container .sec h2::before { content: ''; position: absolute; bottom: -10px; left: 0; width: 50px; height: 3px; background: var(--brand-secondary); }
+      footer .container .sec p, footer .container .sec a { font-size: 0.95rem; line-height: 1.7; color: #fff; opacity: 0.8; transition: opacity 0.3s ease; }
+      footer .container .sec a:hover { opacity: 1; }
+      .social-icon { margin-top: 20px; display: flex; gap: 1rem; }
+      .social-icon li a { font-size: 1.2rem; color: var(--brand-primary); height: 40px; width: 40px; display: grid; place-items: center; border-radius: 50%; background: #fff; transition: background-color 0.3s, color 0.3s; }
+      .social-icon li a:hover { background: var(--brand-secondary); color: #fff; }
+      .useful-links li, .info li { margin-bottom: 0.75rem; }
+      .info li { display: flex; align-items: start; gap: 10px; }
+      .info li i { margin-top: 5px; }
+      .copyright { padding: 20px; background: #000; color: #fff; opacity: 0.6; font-size: 0.9rem; text-align: center; }
+
+      /* Responsive */
+      @media screen and (max-width: 900px) {
+        :root { --font-size-xl: 2rem; --font-size-xxl: 2.8rem; }
+        .navbar :is(#menu-open-button, #menu-close-button) { display: block; }
+        .navbar .nav-menu { position: fixed; top: 0; left: -300px; height: 100%; width: 300px; background: var(--brand-primary); flex-direction: column; justify-content: center; padding-top: 80px; transition: left 0.3s ease; box-shadow: 5px 0 15px rgba(0,0,0,0.2); }
+        .navbar .nav-menu.active { left: 0; }
+        .navbar #menu-close-button { position: absolute; right: 30px; top: 30px; }
+        .about-section .about-details { text-align: center; }
+        .about-section .about-details .section-title { text-align: center; }
+        .about-section .about-details .section-title::after { margin: 10px auto 0; }
+        footer .container { grid-template-columns: 1fr; text-align: center; }
+        footer .container .sec h2::before { left: 50%; transform: translateX(-50%); }
+        .social-icon, .useful-links, .info { justify-content: center; }
+        .info li { justify-content: center; text-align: left; }
+      }
+
+      @media screen and (max-width: 640px) {
+        .hero-section .hero-details .title { font-size: 2.5rem; }
+        .hero-section .hero-details .subtitle { font-size: 1.1rem; }
+      }
+    </style>
+  </head>
+  
+  <body>
+    <header>
+      <nav class="navbar">
+        <a href="#" class="nav-logo">
+          <!-- Your logo.png is used here -->
+          <img src="logo.png" alt="SNR Chugli Adda Logo" class="logo-image">
+        </a>
+        <ul class="nav-menu" id="nav-menu">
+          <button id="menu-close-button" class="fas fa-times"></button>
+          <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="#menu" class="nav-link">Menu</a></li>
+          <li class="nav-item"><a href="#gallery" class="nav-link">Gallery</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <button id="menu-open-button" class="fas fa-bars"></button>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero section with your header-banner.jpg -->
+      <section class="hero-section" id="home">
+        <div class="section-content">
+          <div class="hero-details">
+            <h2 class="title">Welcome to SNR Chugli Adda</h2>
+            <h3 class="subtitle">Premium Tea • Artisan Coffee • Fresh Snacks</h3>
+            <p class="description">Owned by Nandini Sandha, your favorite urban café.</p>
+            <div class="buttons">
+              <a href="#menu" class="button order-now">View Our Menu</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About section with your owner-nandini.jpg -->
+      <section class="about-section" id="about">
+        <div class="section-content">
+          <div class="about-image-wrapper">
+            <img src="owner-nandini.jpg" alt="Owner Nandini Sandha" class="about-image" />
+          </div>
+          <div class="about-details">
+            <h2 class="section-title">About Us</h2>
+            <p class="text">SNR Chugli Adda is a cozy urban café owned by Nandini Sandha. We offer premium teas, artisan coffees, and fresh snacks in a clean, modern space.</p>
+            <p class="text">We believe in:
+                <br>• Quality ingredients & Excellent service
+                <br>• Hygienic preparation & A relaxing atmosphere
+            </p>
+            <p class="text">Our friendly team is here to serve you the best every day.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Menu section with all your photos -->
+      <section class="menu-section" id="menu">
+        <h2 class="section-title">Our Menu</h2>
+        <div class="section-content">
+          <h3 class="menu-subheading">Coffee Selection</h3>
+          <ul class="menu-list">
+            <li class="menu-item">
+              <div class="menu-image-container"><img src="coffee-espresso.jpg" alt="Espresso" class="menu-image" /><div class="steam"><span></span><span></span><span></span></div></div>
+              <div class="menu-details"><h3 class="name">Espresso</h3><p class="price">₹120</p><p class="description">Strong, classic single shot.</p></div>
+            </li>
+            <li class="menu-item">
+              <div class="menu-image-container"><img src="coffee-cappuccino.jpg" alt="Cappuccino" class="menu-image" /><div class="steam"><span></span><span></span><span></span></div></div>
+              <div class="menu-details"><h3 class="name">Cappuccino</h3><p class="price">₹150</p><p class="description">Frothy milk, rich coffee.</p></div>
+            </li>
+            <li class="menu-item">
+              <div class="menu-image-container"><img src="coffee-latte.jpg" alt="Latte" class="menu-image" /><div class="steam"><span></span><span></span><span></span></div></div>
+              <div class="menu-details"><h3 class="name">Latte</h3><p class="price">₹160</p><p class="description">Smooth, milky, layered coffee.</p></div>
+            </li>
+            <li class="menu-item">
+              <div class="menu-image-container"><img src="coffee-americano.jpg" alt="Americano" class="menu-image" /><div class="steam"><span></span><span></span><span></span></div></div>
+              <div class="menu-details"><h3 class="name">Americano</h3><p class="price">₹140</p><p class="description">Espresso with added hot water.</p></div>
+            </li>
+            <li class="menu-item">
+              <div class="menu-image-container"><img src="coffee-mocha.jpg" alt="Mocha" class="menu-image" /><div class="steam"><span></span><span></span><span></span></div></div>
+              <div class="menu-details"><h3 class="name">Mocha</h3><p class="price">₹170</p><p class="description">Coffee with rich chocolate flavor.</p></div>
+            </li>
+            <li class="menu-item">
+              <div class="menu-image-container"><img src="coffee-coldbrew.jpg" alt="Cold Brew" class="menu-image" /></div>
+              <div class="menu-details"><h3 class="name">Cold Brew</h3><p class="price">₹180</p><p class="description">Slow brewed, smooth and chilled.</p></div>
+            </li>
+          </ul>
+          <h3 class="menu-subheading">Tea Collection</h3>
+           <ul class="menu-list">
+            <li class="menu-item">
+              <div class="menu-image-container"><img src="tea-masala.jpg" alt="Masala Chai" class="menu-image" /><div class="steam"><span></span><span></span><span></span></div></div>
+              <div class="menu-details"><h3 class="name">Masala Chai</h3><p class="price">₹100</p><p class="description">Spiced Indian tea.</p></div>
+            </li>
+            <li class="menu-item">
+              <div class="menu-image-container"><img src="tea-green.jpg" alt="Green Tea" class="menu-image" /></div>
+              <div class="menu-details"><h3 class="name">Green Tea</h3><p class="price">₹110</p><p class="description">Light, healthy, refreshing.</p></div>
+            </li>
+            <li class="menu-item">
+              <div class="menu-image-container"><img src="tea-herbal.jpg" alt="Herbal Infusions" class="menu-image" /></div>
+              <div class="menu-details"><h3 class="name">Herbal Infusions</h3><p class="price">₹120</p><p class="description">Relaxing herbal blends.</p></div>
+            </li>
+             <li class="menu-item">
+              <div class="menu-image-container"><img src="tea-black.jpg" alt="Black Tea" class="menu-image" /><div class="steam"><span></span><span></span><span></span></div></div>
+              <div class="menu-details"><h3 class="name">Black Tea</h3><p class="price">₹90</p><p class="description">Classic strong Indian tea.</p></div>
+            </li>
+          </ul>
+          <h3 class="menu-subheading">Snacks & Bakery</h3>
+          <ul class="menu-list">
+            <li class="menu-item">
+              <div class="menu-image-container"><img src="snack-sandwich.jpg" alt="Sandwich" class="menu-image" /></div>
+              <div class="menu-details"><h3 class="name">Sandwich</h3><p class="price">₹120</p><p class="description">Freshly prepared with premium fillings.</p></div>
+            </li>
+            <li class="menu-item">
+              <div class="menu-image-container"><img src="snack-wrap.jpg" alt="Wrap" class="menu-image" /></div>
+              <div class="menu-details"><h3 class="name">Wrap</h3><p class="price">₹130</p><p class="description">Deliciously stuffed wrap.</p></div>
+            </li>
+            <li class="menu-item">
+              <div class="menu-image-container"><img src="bakery-items.jpg" alt="Bakery Items" class="menu-image" /></div>
+              <div class="menu-details"><h3 class="name">Bakery Items</h3><p class="price">₹80–150</p><p class="description">Croissants, muffins, cookies.</p></div>
+            </li>
+            <li class="menu-item">
+              <div class="menu-image-container"><img src="desserts.jpg" alt="Desserts" class="menu-image" /></div>
+              <div class="menu-details"><h3 class="name">Desserts</h3><p class="price">₹100–180</p><p class="description">Cakes, puddings, sweets.</p></div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Gallery section with your images -->
+      <section class="gallery-section" id="gallery">
+        <h2 class="section-title">Our Gallery</h2>
+        <div class="section-content">
+          <ul class="gallery-list">
+            <li class="gallery-item"><img src="cafe-interior.jpg" alt="Cafe Interior" /></li>
+            <li class="gallery-item"><img src="customers.jpg" alt="Happy Customers" /></li>
+            <li class="gallery-item"><img src="barista.jpg" alt="Barista at work" /></li>
+            <li class="gallery-item"><img src="coffee-cup.jpg" alt="A cup of coffee" /></li>
+            <li class="gallery-item"><img src="snacks-closeup.jpg" alt="Close-up of snacks" /></li>
+            <li class="gallery-item"><img src="staff-team.jpg" alt="Our Staff Team" /></li>
+             <li class="gallery-item"><img src="cafe-decor.jpg" alt="Cafe Decoration" /></li>
+             <li class="gallery-item"><img src="owner-nandini-portrait.jpg" alt="Portrait of Nandini" /></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Contact section -->
+      <section class="contact-section" id="contact">
+        <h2 class="section-title">Get in Touch</h2>
+        <div class="section-content">
+          <ul class="contact-info-list">
+            <li class="contact-info"><i class="fa-solid fa-user"></i><p>Nandini Sandha (Owner)</p></li>
+            <li class="contact-info"><i class="fa-solid fa-envelope"></i><p>snr.chugli.adda@gmail.com</p></li>
+            <li class="contact-info"><i class="fa-solid fa-phone"></i><p>+91-9876543210</p></li>
+            <li class="contact-info"><i class="fa-solid fa-map-marker-alt"></i><p>Shop No. 12, City Mall, MG Road, Bhubaneswar</p></li>
+          </ul>
+          <form action="#" class="contact-form">
+            <input type="text" placeholder="Your Name" class="form-input" required />
+            <input type="email" placeholder="Your Email" class="form-input" required />
+            <textarea placeholder="Your Message" class="form-input" required></textarea>
+            <button type="submit" class="button submit-button">Send Message</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer section -->
+    <footer>
+      <div class="container">
+        <div class="sec about">
+          <h2>SNR Chugli Adda</h2>
+          <p>Your favorite urban café for premium teas, artisan coffees, and freshly prepared snacks. A community space where great conversations happen over even greater coffee.</p>
+          <ul class="social-icon">
+            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="#"><i class="fab fa-whatsapp"></i></a></li>
+          </ul>
+        </div>
+        <div class="sec useful-links">
+          <h2>Useful Links</h2>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="sec contact">
+          <h2>Contact Info</h2>
+          <ul class="info">
+            <li><span><i class="fa-solid fa-map-marker-alt"></i></span><span>Shop No. 12, City Mall, MG Road, Bhubaneswar</span></li>
+            <li><span><i class="fa-solid fa-phone"></i></span><p><a href="tel:+919876543210">+91-9876543210</a></p></li>
+            <li><span><i class="fa-solid fa-envelope"></i></span><p><a href="mailto:snr.chugli.adda@gmail.com">snr.chugli.adda@gmail.com</a></p></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <div class="copyright">
+      <p>Copyright © 2024 SNR Chugli Adda | Designed with love. All Rights Reserved.</p>
+    </div>
+
+    <!-- Swiper Script (Needed for Testimonials, if you add them back) -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Custom Script for mobile menu -->
+    <script>
+      const navMenu = document.getElementById("nav-menu");
+      const openMenuBtn = document.getElementById("menu-open-button");
+      const closeMenuBtn = document.getElementById("menu-close-button");
+      openMenuBtn.addEventListener("click", () => navMenu.classList.add("active"));
+      closeMenuBtn.addEventListener("click", () => navMenu.classList.remove("active"));
+      document.querySelectorAll(".nav-link").forEach(link => {
+        link.addEventListener("click", () => navMenu.classList.remove("active"));
+      });
+    </script>
+  </body>
+</html>
